@@ -1,0 +1,106 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: Everything about books
+  title: Books service example
+  version: "1.0"
+servers:
+- url: /
+tags:
+- description: ""
+  name: books
+paths:
+  /books:
+    get:
+      operationId: AppController_listBooks
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Book'
+                type: array
+          description: ""
+      tags:
+      - books
+  /categories:
+    get:
+      operationId: AppController_listBookCategories
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Category'
+                type: array
+          description: ""
+      tags:
+      - books
+  /books/{id}:
+    get:
+      operationId: AppController_findOne
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+          description: ""
+        "404":
+          description: ""
+      tags:
+      - books
+components:
+  schemas:
+    Book:
+      example:
+        categorieId: "1"
+        id: "1"
+        authorId: "1"
+        title: Dune
+      properties:
+        id:
+          example: "1"
+          type: string
+        authorId:
+          example: "1"
+          type: string
+        categorieId:
+          example: "1"
+          type: string
+        title:
+          example: Dune
+          type: string
+      required:
+      - authorId
+      - categorieId
+      - id
+      - title
+      type: object
+    Category:
+      example:
+        name: Fiction
+        id: "1"
+      properties:
+        id:
+          example: "1"
+          type: string
+        name:
+          example: Fiction
+          type: string
+      required:
+      - id
+      - name
+      type: object
