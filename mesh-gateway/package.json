@@ -1,6 +1,11 @@
 {
   "dependencies": {
     "@graphql-mesh/cli": "^0.82.11",
+    "@graphql-mesh/openapi": "^0.35.7",
     "graphql": "^16.6.0"
+  },
+  "scripts": {
+    "start": "mesh start",
+    "build": "mesh build"
   }
 }

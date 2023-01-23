@@ -17,5 +17,5 @@ import (
 func main() {
 	log.Printf("Server started")
 	router := openapi.NewRouter()
-	log.Fatal(router.Run(":8080"))
+	log.Fatal(router.Run(":3002"))
 }
