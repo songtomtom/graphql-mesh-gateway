@@ -4,10 +4,11 @@ sources:
       openapi:
         endpoint: http://localhost:3002/
         source: ../rest-api/openapi3-definition.json
-#  - name: Authors
-#    handler:
-#      grpc:
-#        endpoint: http://localhost:3003/
+  - name: Authors
+    handler:
+      grpc:
+        endpoint: http://localhost:3003/
+        source: ../grpc/proto/v1/authors_service.proto
 #  - name: Stores
 #    handler:
 #      graphql:
@@ -15,6 +16,6 @@ sources:
 serve:
   hostname: 0.0.0.0
   port: 80
-  endpoint: /gateway/graphql
+  endpoint: /
   browser: false
   playground: true

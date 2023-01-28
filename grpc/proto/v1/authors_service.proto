@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+
+option go_package = "github.com/songtomtom/graphql-mesh-gateway/grpc/proto/v1";
+
+package v1;
+
+service AuthorsService {
+  rpc GetAuthor(GetAuthorRequest) returns (Author) {}
+  rpc ListAuthors(ListAuthorsRequest) returns (ListAuthorsResponse) {}
+}
+
+message ListAuthorsRequest {}
+
+
+message GetAuthorRequest {
+  string id = 1;
+}
+
+message ListAuthorsResponse {
+  repeated Author items = 1;
+}
+
+message Author {
+  string id = 1;
+  string name = 2;
+  string editor = 3;
+}
