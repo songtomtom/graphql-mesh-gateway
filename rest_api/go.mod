@@ -1,4 +1,4 @@
-module github.com/songtomtom/graphql-mesh-gateway/rest-api
+module github.com/songtomtom/graphql-mesh-gateway/rest_api
 
 go 1.13
 
